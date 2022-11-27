@@ -1,3 +1,12 @@
+MODPATH=${0%/*}
+rm -rf /data/system/package_cache/*
+tmp_list="MIUISystemUIPlugin"
+dda=/data/dalvik-cache/arm
+[ -d $dda"64" ] && dda=$dda"64"
+for i in $tmp_list; do
+	rm -f $dda/system@*@"$i"*
+done
+
 # Don't modify anything after this
 if [ -f $INFO ]; then
   while read LINE; do
